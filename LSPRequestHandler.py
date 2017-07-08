@@ -1,11 +1,13 @@
-import json
-import jsonrpc
-import socket
-import uuid
 
 class LSPRequestHandler(object):
-    def __init__(self):
-        pass
+    """Handle the request received from a client
+    Extract the content length, content type and the content"""
+    def __init__(self, data):
+        assert(type(data) == bytes)
+        data_str = data.decode("utf-8")
+        # read header
+        # read one line at a time
+        # first non empty line must be Content-type
 
     def _content_length(self, line):
         """ Extract the content lenght from a the header"""
@@ -24,3 +26,7 @@ class LSPRequestHandler(object):
 
         _, content_type = line.split("Content-Type: ")
         return content_type
+
+    def _read_conten(self, size):
+        """Read content of the query"""
+        pass
