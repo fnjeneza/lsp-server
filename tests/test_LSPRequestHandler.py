@@ -21,5 +21,3 @@ def test_content_type():
     _line = "Content-Type: application/vim;charset=utf-8"
     _resp = _lsp._content_type(_line)
     assert(_resp == "application/vim;charset=utf-8")
-
-
