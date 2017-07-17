@@ -1,0 +1,2 @@
+Dependencies:
+    json-rpc
