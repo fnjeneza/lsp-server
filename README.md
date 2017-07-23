@@ -1,2 +1,2 @@
 Dependencies:
-    json-rpc
+    pip install json-rpc
