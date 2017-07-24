@@ -26,4 +26,5 @@ class LSP(object):
         assert _is_trace_valid(trace):
 
         self._initialized = True
+        # TODO handle initialize errors as in specification
 

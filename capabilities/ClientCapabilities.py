@@ -1,12 +1,15 @@
+import TextDocumentClientCapabilities
+import WorkspaceClientCapabilities
+
 class ClientCapabilities(object):
     def __init__(self, workspace=None,textDocument=None, experimental=None):
         if workspace is not None:
             assert isinstance(workspace, WorkspaceClientCapabilities)
-            _workspace = workspace
+            self._workspace = workspace
 
         if textDocument is not None:
             assert isinstance(textDocument, TextDocumentClientCapabilities)
-            _textDocument = textDocument
+            self._textDocument = textDocument
 
-        _experimental = experimental
+        self._experimental = experimental
 
