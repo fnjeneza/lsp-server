@@ -2,9 +2,6 @@
 class WorkspaceEdit:
     documentChanges = False
 
-class DynamicRegistration:
-    dynamicRegistration = False
-
 class WorkspaceClientCapabilities(object):
     def __init__(self,
             applyEdit=False,

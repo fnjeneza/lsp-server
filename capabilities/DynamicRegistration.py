@@ -1,0 +1,3 @@
+
+class DynamicRegistration:
+    dynamicRegistration = False
