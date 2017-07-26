@@ -1,3 +1,3 @@
 
-class DynamicRegistration:
+class DynamicRegistration(object):
     dynamicRegistration = False
