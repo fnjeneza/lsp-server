@@ -43,3 +43,24 @@ class TextDocumentOptions(object):
             assert isinstance(save, SaveOptions)
             self._save = save
 
+class ServerCapabilities(object):
+    def __init__(self,
+            textDocumentSync=None,
+            hoverProvider=None,
+            completionProvider=None,
+            signatureHelpProvider=None,
+            definitionProvider=None,
+            referencesProvider=False,
+            documentHighLightProvider=False,
+            documentSymbolProvider=False,
+            workspaceSymbolProvider=False,
+            codeActionProvider=False,
+            codeLensProvider=None,
+            documentFormattingProvider=False,
+            documentRangeFormattingProvider=False,
+            documentOnTypeFormattingProvider=None,
+            renameProvider=False,
+            documentLinkProvider=None,
+            executeCommandProvider=None,
+            experimental=None
+            )
