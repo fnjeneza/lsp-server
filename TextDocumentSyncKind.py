@@ -64,3 +64,21 @@ class ServerCapabilities(object):
             executeCommandProvider=None,
             experimental=None
             )
+    self._textDocumentSync = textDocumentSync
+    self._hoverProvider = hoverProvider
+    self._completionProvider = completionProvider
+    self._signatureHelpProvider = signatureHelpProvider
+    self._definitionProvider = defintionProvider
+    self._referencesProvider = referencesProvider
+    self._documentHightLightProvider = documentHighLightProvider
+    self._documentSymbolProvider = documentSymbolProvider
+    self._workspaceSymbolProvider = workspaceSymbolProvider
+    self._codeActionProvider = codeActionProvider
+    self._codeLensProvider = codeLensProvider
+    self._documentFormattingProvider = documentFormattingProvider
+    self._documentRangeFormattingProvider = documentRangeFormattingProvider
+    self._documentOnTypeFormattingProvider = documentOnTypeFormattingProvider
+    self._renameProvider = renameProvider
+    self._documentLinkProvider = documentLinkProvider
+    self._executeCommandProvider = executeCommandProvider
+    self._experimental = experimental
