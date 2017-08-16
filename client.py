@@ -1,13 +1,22 @@
 import socket
 
-# TODO make this a wrapper
-def send(message, host="localhost", port=8888):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s :
-        s.connect((host, port))
-        s.sendall(bytes(message, "utf-8"))
-        data = str(s.recv(1024), "utf-8")
-        print("Received: {}".format(data))
+class Client(object):
+    def __init__(self, host="localhost", port = 8888):
+        self._server_address = (host, port)
+        self._encoding = "utf-8"
+
+    # TODO make this a wrapper
+    def send(self, message):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s :
+            s.connect(self._server_address)
+            s.sendall(bytes(message, self._encoding))
+            data = str(s.recv(1024), self._encoding)
+            print("Received: {}".format(data))
 
 
 if __name__ == "__main__":
-    send("test")
+    client = Client()
+    client.send("hello test")
+
+
+
