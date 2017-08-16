@@ -13,6 +13,12 @@ class Client(object):
             data = str(s.recv(1024), self._encoding)
             print("Received: {}".format(data))
 
+    def on_recv():
+        """
+        callback called when there is incoming data
+        """
+        pass
+
 
 if __name__ == "__main__":
     client = Client()
