@@ -1,5 +1,6 @@
 import socket
 
+# TODO make this a wrapper
 def send(message, host="localhost", port=8888):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s :
         s.connect((host, port))
