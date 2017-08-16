@@ -11,6 +11,7 @@ class RequestHandler(socketserver.BaseRequestHandler):
         self.data = self.request.recv(1024).strip()
         print("request from {}".format(self.client_address[0]))
         print(self.data)
+        self.request.sendall(self.data)
 
 def run(host="localhost", port=8888):
     """Run the server"""
