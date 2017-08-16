@@ -1,19 +1,21 @@
-import socket
+import socketserver
 
-HOST=''
-PORT=8888
+class RequestHandler(socketserver.BaseRequestHandler):
+    """
+    The request handler class
+    """
+    def handle(self):
+        """
+        Handle the request
+        """
+        self.data = self.request.recv(1024).strip()
+        print("request from {}".format(self.client_address[0]))
+        print(self.data)
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((HOST,PORT))
-    s.listen(1)
-    # run server forever
-    while True:
-        # wait for a connection
-        conn, addr = s.accept()
+def run(host="localhost", port=8888):
+    """Run the server"""
+    server =  socketserver.TCPServer((host, port), RequestHandler)
+    server.serve_forever()
 
-        with conn:
-            print("connected to {}".format(addr))
-            while True:
-                data = conn.recv(1024)
-                if not data: break
-                conn.sendall(data)
+if __name__ == '__main__':
+    run()
