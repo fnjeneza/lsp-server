@@ -25,21 +25,23 @@ class Client2(asyncore.dispatcher_with_send):
         asyncore.dispatcher.__init__(self)
         self.create_socket()
         self.connect((host, port))
+        self.out_buffer = bytearray()
 
     def handle_read(self):
         data = self.recv(1024)
-        print(data)
+        if data:
+            print(data.decode())
         #call callback here
         # on receive
         pass
-
 
 if __name__ == "__main__":
     #client = Client()
     #print(client.send("hello test"))
 
     client = Client2()
-    client.send("toto")
+    client.send("toto2".encode())
+    asyncore.loop()
 
 
 
