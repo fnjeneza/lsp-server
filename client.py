@@ -1,4 +1,5 @@
 import socket
+import asyncore
 
 class Client(object):
     def __init__(self, host="localhost", port = 8888):
@@ -11,7 +12,7 @@ class Client(object):
             s.connect(self._server_address)
             s.sendall(bytes(message, self._encoding))
             data = str(s.recv(1024), self._encoding)
-            print("Received: {}".format(data))
+            return data
 
     def on_recv():
         """
@@ -19,10 +20,26 @@ class Client(object):
         """
         pass
 
+class Client2(asyncore.dispatcher_with_send):
+    def __init__(self, host="localhost", port=8888):
+        asyncore.dispatcher.__init__(self)
+        self.create_socket()
+        self.connect((host, port))
+
+    def handle_read(self):
+        data = self.recv(1024)
+        print(data)
+        #call callback here
+        # on receive
+        pass
+
 
 if __name__ == "__main__":
-    client = Client()
-    client.send("hello test")
+    #client = Client()
+    #print(client.send("hello test"))
+
+    client = Client2()
+    client.send("toto")
 
 
 
